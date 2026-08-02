@@ -2,11 +2,12 @@
 
 {
 
-  home.username = "david";
+  home.username = "taliro";
 
-  home.homeDirectory = "/home/david";
+  home.homeDirectory = "/home/taliro";
 
   home.packages = with pkgs; [
+    git
 
     kitty
 
@@ -27,6 +28,8 @@
     nix-direnv
 
     maple-mono.NF
+
+    lazygit
   ];
 
   programs.git.enable = true;

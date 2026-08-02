@@ -22,7 +22,7 @@
         home-manager.nixosModules.home-manager
 
         {
-          home-manager.users.david =
+          home-manager.users.taliro =
             import ./home/home.nix;
         }
       ];
