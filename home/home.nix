@@ -30,6 +30,8 @@
     maple-mono.NF
 
     lazygit
+
+    firefox
   ];
 
   programs.git.enable = true;
