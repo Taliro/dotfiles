@@ -7,7 +7,6 @@
 
   ],
   "modules-center": [
-    "hyprland/window"
   ],
   "modules-right": [
     "group/expand",

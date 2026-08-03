@@ -2,25 +2,11 @@
 
 {
   imports = [
+    ./hardware-configuration.nix
     ./modules/nvidia.nix
     ./modules/audio.nix
     ./modules/hyprland.nix
     ./modules/networking.nix
-  ];
-
-  # Console
-  console = {
-    packages = with pkgs; [
-      terminus-font
-    ];
-    
-    font = "ter-v16b";
-  }
-
-  
-  # Police
-  fonts.packages = with pkgs; [
-    maple-mono.NF
   ];
 
   # Allow unFree package

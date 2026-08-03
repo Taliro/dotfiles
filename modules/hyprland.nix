@@ -16,13 +16,13 @@
 
   services.greetd = {
     enable = true;
-    settings.default_session = {
-      command = "${pkgs.hyprland}/bin/start-hyprland";
-      user = "taliro";
+      settings.default_session = {
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd ${pkgs.hyprland}/bin/start-hyprland";
     };
   };
 
   environment.systemPackages = with pkgs; [
+
     waybar
 
     rofi
