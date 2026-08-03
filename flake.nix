@@ -27,6 +27,22 @@
         }
       ];
     };
+
+    nixosConfigurations.desktopvm = nixpkgs.lib.nixosSystem {
+
+      system = "x86_64-linux";
+
+      modules = [
+        ./configuration-vm.nix
+
+        home-manager.nixosModules.home-manager
+
+        {
+          home-manager.users.taliro =
+            import ./home/home.nix;
+        }
+      ];
+    };
     nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
 
       system = "x86_64-linux";

@@ -9,6 +9,20 @@
     ./modules/networking.nix
   ];
 
+  # Console
+  console = {
+    packages = with pkgs; [
+      terminus-font
+    ];
+    
+    font = "ter-v16b";
+  };
+  
+  # Police
+  fonts.packages = with pkgs; [
+    maple-mono.NF
+  ];
+
   # Allow unFree package
   nixpkgs.config.allowUnfree = true;
 
