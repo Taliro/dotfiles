@@ -61,11 +61,12 @@
   };
 
   home.pointerCursor = {
+    enable = true;
     gtk.enable = true;
     x11.enable = true;
 
     package = pkgs.bibata-cursors;
-    name = "Bibata=Modern-Classic";
+    name = "Bibata-Modern-Classic";
     size = 14;
   };
 
@@ -74,7 +75,7 @@
   home.file.".config/kitty/kitty.conf".source = ./kitty/kitty.conf;
 
   home.file.".config/waybar/config.jsonc".source = ./waybar/config.jsonc;
-  home.file.".config/waybar/config.jsonc".source = ./waybar/style.css;
+  home.file.".config/waybar/style.css".source = ./waybar/style.css;
   
   home.stateVersion = "26.05";
 

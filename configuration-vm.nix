@@ -12,7 +12,7 @@
   # Console
   console = {
     packages = with pkgs; [
-      terminus-font
+      terminus_font
     ];
     
     font = "ter-v16b";
