@@ -18,8 +18,21 @@
   }
 
 
-  # Fish terminal
-  programs.fish.enable = true; 
+  # Fish terminal & starship
+  programs.starship.enable = true;
+
+  programs.fish = {
+    enable = true; 
+
+    interactiveShellInit = ''
+        starship init fish | source
+      '';
+
+    shellAliases = {
+      ll = "eza -lha --icons=auto --group-directories-first --sort=name";
+      rebuild = "sudo nixos-rebuild switch --flake .#desktop";
+    };
+  };
 
   users.users.taliro = {
     shell = pkgs.fish;
