@@ -1,0 +1,18 @@
+[mgr]
+show_hidden = true
+sort_by = "natural"
+sort_dir_first = true
+linemode = "none"
+show_symlink = true
+ratio = [2, 4, 3]
+
+[preview]
+wrap = "yes"
+tab_size = 4
+max_width = 1200
+max_height = 1600
+
+[opener]
+edit = [
+  { run = "hx %*", block = true }
+]

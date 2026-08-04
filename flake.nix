@@ -1,62 +1,34 @@
- {
-  description = "NixOS Hyprland Desktop";
+{
+  description = "Description of Folder Manager";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }:
-  {
-    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+        };
+      in
+      {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            lazygit
+          ];
 
-      system = "x86_64-linux";
+          shellHook = ''
+            echo "🚀 Environnement React/Bun chargé"
+          '';
+        };
+      }
+    );
 
-      modules = [
-        ./configuration.nix
-
-        home-manager.nixosModules.home-manager
-
-        {
-          home-manager.users.taliro =
-            import ./home/home.nix;
-        }
-      ];
-    };
-
-    nixosConfigurations.desktopvm = nixpkgs.lib.nixosSystem {
-
-      system = "x86_64-linux";
-
-      modules = [
-        ./configuration-vm.nix
-
-        home-manager.nixosModules.home-manager
-
-        {
-          home-manager.users.taliro =
-            import ./home/home.nix;
-        }
-      ];
-    };
-    nixosConfigurations.vm = nixpkgs.lib.nixosSystem {
-
-      system = "x86_64-linux";
-
-      modules = [
-        ./configuration-vm.nix
-
-        home-manager.nixosModules.home-manager
-
-        {
-          home-manager.users.taliro =
-            import ./home/home.nix;
-        }
-      ];
-    };
-  };
 }
