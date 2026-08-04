@@ -1,0 +1,7 @@
+# Personal Nix environment
+flake.nix
+flake.lock
+.envrc
+.direnv/
+.ignore
+

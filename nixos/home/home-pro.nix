@@ -37,9 +37,10 @@
   programs.git = {
     enable = true;
 
-    userName = "Taliro";
-
     extraConfig = {
+      core = {
+        excludesfile = "~/.config/git/ignore";
+      };
 
       init = {
         defaultBranch = "main";
@@ -50,7 +51,7 @@
       };
     };
   };
-
+  
   programs.direnv = {
 
     enable = true;
@@ -92,6 +93,7 @@
   home.file.".config/waybar/config.jsonc".source = ./waybar/config.jsonc;
   home.file.".config/waybar/style.css".source = ./waybar/style.css;
   home.file.".config/yazi/yazi.toml".source = ./yazi/yazi.toml;
+  home.file.".config/git/ignore".source = ./git/ignore";
   
   home.stateVersion = "26.05";
 

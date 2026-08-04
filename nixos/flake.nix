@@ -12,6 +12,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... }:
   {
+
     nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
 
       system = "x86_64-linux";
@@ -24,6 +25,22 @@
         {
           home-manager.users.taliro =
             import ./home/home.nix;
+        }
+      ];
+    };
+
+    nixosConfigurations.pro = nixpkgs.lib.nixosSystem {
+
+      system = "x86_64-linux";
+
+      modules = [
+        ./configuration-pro.nix
+
+        home-manager.nixosModules.home-manager
+
+        {
+          home-manager.users.taliro =
+            import ./home/home-pro.nix;
         }
       ];
     };
