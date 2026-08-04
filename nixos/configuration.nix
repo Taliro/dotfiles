@@ -17,7 +17,14 @@
     font = "ter-v16b";
   }
 
-  
+
+  # Fish terminal
+  programs.fish.enable = true; 
+
+  users.users.taliro = {
+    shell = pkgs.fish;
+  };
+
   # Police
   fonts.packages = with pkgs; [
     maple-mono.NF
