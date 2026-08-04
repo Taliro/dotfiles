@@ -105,6 +105,16 @@
     "flakes"
   ];
 
+  # END MESSAGE
+  system.activationScripts.gitReminder = ''
+    echo ""
+    echo "======================================"
+    echo " Don't forget :"
+    echo "   git config --global user.name"
+    echo "   git config --global user.email"
+    echo "======================================"
+    echo ""
+  '';
 
   system.stateVersion = "26.05";
 }
